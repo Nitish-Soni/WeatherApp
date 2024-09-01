@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 import Footer from "./Components/Footer";
 import Navbar from "./Components/Navbar";
@@ -26,6 +27,7 @@ function App() {
             },
             (error) => {
               reject(`Error code: ${error.code}, Message: ${error.message}`);
+              setError(error.code + ", " + error.message);
             },
             {
               enableHighAccuracy: true,

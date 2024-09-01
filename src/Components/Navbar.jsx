@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { faToggleOff, faToggleOn } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { fetchCityList, fetchWeather } from "../function";
@@ -52,6 +53,8 @@ function Navbar(props) {
             {"</>"}
           </h3>
           <form
+            id="SearchForm"
+            name="SearchForm"
             onSubmit={(event) => {
               event.preventDefault();
               displayWeather(props.SearchString);
@@ -69,6 +72,7 @@ function Navbar(props) {
             }}
           >
             <input
+              id="Input"
               type="text"
               className={`${props.mode ? "dark" : "light"}`}
               style={{

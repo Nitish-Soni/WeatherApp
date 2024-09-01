@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { fetchWeather } from "../function";
 import Spinner from "./Spinner";
 

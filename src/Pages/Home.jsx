@@ -1,15 +1,15 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/prop-types */
 import Spinner from "../Components/Spinner";
 import Sunrise from "../assets/sunrise.png";
 import Sunset from "../assets/sunset.png";
 
 function Home(props) {
   let HourForecastData = [];
-  console.log(props.data);
   let currentTimewithSeconda = Date.now();
   const millisInAnHour = 3600 * 1000;
   let currentTime =
     Math.floor(currentTimewithSeconda / millisInAnHour) * millisInAnHour;
-  console.log(currentTime);
   let firstForecast = props.data.forecast.forecastday[0].hour;
   let secondForecast = props.data.forecast.forecastday[1].hour;
   for (let i = 0; i < firstForecast.length; i++) {
@@ -120,7 +120,7 @@ function Home(props) {
           }}
           style={{
             width: "100%",
-            margin: "0",
+            margin: "25px 0 0 0",
             padding: "0",
             minHeight: "95vh",
             display: "flex",
@@ -169,7 +169,11 @@ function Home(props) {
             >
               {Math.floor(props.data.current.temp_c)} &deg;C
             </h1>
-            <img src={props.data.current.condition.icon} alt="..." />
+            <img
+              src={props.data.current.condition.icon}
+              alt="..."
+              style={{ marginTop: "5px", marginBottom: "5px" }}
+            />
             <h4
               style={{
                 margin: "0",
@@ -178,12 +182,12 @@ function Home(props) {
                 textAlign: "center",
               }}
             >
-              "{props.data.current.condition.text}"
+              {props.data.current.condition.text}
             </h4>
             <div
               style={{
                 display: "flex",
-                margin: "0",
+                margin: "5px 0 0 0",
                 padding: "0",
                 justifyContent: "center",
                 alignItems: "center",
@@ -220,8 +224,7 @@ function Home(props) {
               justifyContent: "center",
               width: "90%",
               padding: "10px",
-              margin: "0",
-              marginTop: "20px",
+              margin: "40px 0 0 0",
               backgroundColor: `${
                 props.mode ? "rgba(255, 255, 255, 0.10)" : "rgba(0, 0, 0, 0.10)"
               }`,
@@ -250,10 +253,10 @@ function Home(props) {
                 width: "100%",
                 display: "flex",
                 overflow: "scroll",
-                margin: "0",
-                marginTop: "10px",
+                margin: "20px 0 0 0",
                 alignItems: "center",
                 justifyContent: "start",
+                paddingBottom: "10px",
               }}
             >
               {HourForecastData.map((item) => {
@@ -287,19 +290,32 @@ function Home(props) {
                       <img
                         src={Sunrise}
                         alt="Sunrise Icon"
-                        style={{ width: "80px", height: "80px" }}
+                        style={{
+                          width: "80px",
+                          height: "80px",
+                          margin: "5px 0 0 0",
+                          marginBottom: "5px",
+                        }}
                       />
                     ) : item.temp_c === "Sunset" ? (
                       <img
                         src={Sunset}
                         alt="Sunset Icon"
-                        style={{ width: "80px", height: "80px" }}
+                        style={{
+                          width: "80px",
+                          height: "80px",
+                          margin: "5px 0 5px 0",
+                        }}
                       />
                     ) : (
                       <img
                         src={item.condition.icon}
                         alt="Default Icon"
-                        style={{ width: "80px", height: "80px" }}
+                        style={{
+                          width: "80px",
+                          height: "80px",
+                          mmargin: "5px 0 5px 0",
+                        }}
                       />
                     )}
                     <div style={{ width: "50px", textAlign: "center" }}>
@@ -312,6 +328,7 @@ function Home(props) {
               })}
             </div>
           </div>
+          <div>Hello</div>
         </div>
       )}
     </>
